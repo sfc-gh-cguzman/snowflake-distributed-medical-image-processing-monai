@@ -884,6 +884,7 @@ Same inference workload (46 seconds):
 ### Snowflake Resources
 
 - **Snowpark Container Services**: [Documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview)
+- **Snowflake Ray Distributed Processing**: [Scaling with Ray](https://docs.snowflake.com/en/developer-guide/snowflake-ml/scale-application-ray)
 - **Snowflake ML**: [Model Registry Guide](https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview)
 - **GPU Compute**: [GPU Instances Guide](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference)
 
