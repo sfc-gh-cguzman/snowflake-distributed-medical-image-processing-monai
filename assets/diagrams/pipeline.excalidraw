@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "https://excalidraw.com",
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
   "elements": [
     {
       "id": "medical-images",
@@ -19,16 +19,24 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 1,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow1", "type": "arrow" }
+        {
+          "id": "arrow1",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 2112622962,
+      "index": "a0",
+      "frameId": null
     },
     {
       "id": "medical-images-label",
@@ -48,10 +56,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 2,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "Medical Images\nNIfTI Format",
@@ -59,7 +67,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 867006126,
+      "index": "a1",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Medical Images\nNIfTI Format",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "medical-icon",
@@ -79,10 +94,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 100,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "🧠",
@@ -90,7 +105,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 1091375922,
+      "index": "a2",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "🧠",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow1",
@@ -108,23 +130,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 3,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "medical-images", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "snowflake-stages", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "medical-images",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "snowflake-stages",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 1885761774,
+      "index": "a3",
+      "frameId": null
     },
     {
       "id": "snowflake-stages",
@@ -142,24 +183,35 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 4,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow1", "type": "arrow" },
-        { "id": "arrow2", "type": "arrow" }
+        {
+          "id": "arrow1",
+          "type": "arrow"
+        },
+        {
+          "id": "arrow2",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 69721330,
+      "index": "a4",
+      "frameId": null
     },
     {
       "id": "snowflake-stages-label",
       "type": "text",
-      "x": 250,
-      "y": 175,
-      "width": 120,
+      "x": 241.43433753502404,
+      "y": 175.00466539349952,
+      "width": 137.90391540527344,
       "height": 50,
       "angle": 0,
       "strokeColor": "#1565c0",
@@ -172,10 +224,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 5,
-      "version": 1,
+      "version": 28,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446373650,
       "link": null,
       "locked": false,
       "text": "Snowflake Stages\nSecure Storage",
@@ -183,7 +235,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 2112796142,
+      "index": "a5",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Snowflake Stages\nSecure Storage",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "snowflake-icon",
@@ -203,10 +262,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 101,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "❄️",
@@ -214,7 +273,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 885223090,
+      "index": "a6",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "❄️",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow2",
@@ -232,23 +298,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 6,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "snowflake-stages", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "distributed-training", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "snowflake-stages",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "distributed-training",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 2121633134,
+      "index": "a7",
+      "frameId": null
     },
     {
       "id": "distributed-training",
@@ -266,24 +351,35 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 7,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow2", "type": "arrow" },
-        { "id": "arrow3", "type": "arrow" }
+        {
+          "id": "arrow2",
+          "type": "arrow"
+        },
+        {
+          "id": "arrow3",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 2005321842,
+      "index": "a8",
+      "frameId": null
     },
     {
       "id": "distributed-training-label",
       "type": "text",
-      "x": 445,
-      "y": 175,
-      "width": 130,
+      "x": 432.403437551506,
+      "y": 175.55051643293416,
+      "width": 156.59190368652344,
       "height": 50,
       "angle": 0,
       "strokeColor": "#047857",
@@ -296,10 +392,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 8,
-      "version": 1,
+      "version": 51,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446370967,
       "link": null,
       "locked": false,
       "text": "Distributed Training\nRay + GPU",
@@ -307,7 +403,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 1964254062,
+      "index": "a9",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Distributed Training\nRay + GPU",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "training-icon",
@@ -327,10 +430,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 102,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "⚡",
@@ -338,7 +441,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 1144580658,
+      "index": "aA",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "⚡",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow3",
@@ -356,23 +466,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 9,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "distributed-training", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "monai-model", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "distributed-training",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "monai-model",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 1741130222,
+      "index": "aB",
+      "frameId": null
     },
     {
       "id": "monai-model",
@@ -390,25 +519,36 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 10,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow3", "type": "arrow" },
-        { "id": "arrow4", "type": "arrow" }
+        {
+          "id": "arrow3",
+          "type": "arrow"
+        },
+        {
+          "id": "arrow4",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 29414386,
+      "index": "aC",
+      "frameId": null
     },
     {
       "id": "monai-model-label",
       "type": "text",
-      "x": 655,
-      "y": 175,
-      "width": 130,
-      "height": 50,
+      "x": 639.65234375,
+      "y": 174.66015625,
+      "width": 159.11161145210278,
+      "height": 48.31640625000001,
       "angle": 0,
       "strokeColor": "#5b21b6",
       "backgroundColor": "transparent",
@@ -420,18 +560,25 @@
       "groupIds": [],
       "roundness": null,
       "seed": 11,
-      "version": 1,
+      "version": 75,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446321271,
       "link": null,
       "locked": false,
       "text": "MONAI Model\nRegistration Network",
-      "fontSize": 16,
+      "fontSize": 15.461250000000009,
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 1763162222,
+      "index": "aD",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "MONAI Model\nRegistration Network",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "model-icon",
@@ -451,10 +598,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 103,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "🤖",
@@ -462,7 +609,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 572884402,
+      "index": "aE",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "🤖",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow4",
@@ -480,23 +634,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 12,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "monai-model", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "model-registry", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "monai-model",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "model-registry",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 556033646,
+      "index": "aF",
+      "frameId": null
     },
     {
       "id": "model-registry",
@@ -514,17 +687,28 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 13,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow4", "type": "arrow" },
-        { "id": "arrow5", "type": "arrow" }
+        {
+          "id": "arrow4",
+          "type": "arrow"
+        },
+        {
+          "id": "arrow5",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 1049493362,
+      "index": "aG",
+      "frameId": null
     },
     {
       "id": "model-registry-label",
@@ -544,10 +728,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 14,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "Model Registry\nVersioning",
@@ -555,7 +739,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 954820782,
+      "index": "aH",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Model Registry\nVersioning",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "registry-icon",
@@ -575,10 +766,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 104,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "📦",
@@ -586,7 +777,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 859914546,
+      "index": "aI",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "📦",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow5",
@@ -604,23 +802,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 15,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "model-registry", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "parallel-inference", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "model-registry",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "parallel-inference",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 223617774,
+      "index": "aJ",
+      "frameId": null
     },
     {
       "id": "parallel-inference",
@@ -638,24 +855,35 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 16,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow5", "type": "arrow" },
-        { "id": "arrow6", "type": "arrow" }
+        {
+          "id": "arrow5",
+          "type": "arrow"
+        },
+        {
+          "id": "arrow6",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446271603,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 1000753906,
+      "index": "aK",
+      "frameId": null
     },
     {
       "id": "parallel-inference-label",
       "type": "text",
-      "x": 1055,
-      "y": 175,
-      "width": 110,
+      "x": 1039.76171875,
+      "y": 176.984375,
+      "width": 140.78390502929688,
       "height": 50,
       "angle": 0,
       "strokeColor": "#b45309",
@@ -668,10 +896,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 17,
-      "version": 1,
+      "version": 38,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446306725,
       "link": null,
       "locked": false,
       "text": "Parallel Inference\n4 GPUs",
@@ -679,7 +907,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 920387822,
+      "index": "aL",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Parallel Inference\n4 GPUs",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "inference-icon",
@@ -699,10 +934,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 105,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "🚀",
@@ -710,7 +945,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 239344818,
+      "index": "aM",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "🚀",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "arrow6",
@@ -728,23 +970,42 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 18,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "points": [
-        [0, 0],
-        [50, 0]
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "parallel-inference", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "clinical-results", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "parallel-inference",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "clinical-results",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "endArrowhead": "arrow",
+      "versionNonce": 2099167086,
+      "index": "aN",
+      "frameId": null
     },
     {
       "id": "clinical-results",
@@ -762,23 +1023,31 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 19,
-      "version": 1,
+      "version": 4,
       "isDeleted": false,
       "boundElements": [
-        { "id": "arrow6", "type": "arrow" }
+        {
+          "id": "arrow6",
+          "type": "arrow"
+        }
       ],
-      "updated": 1,
+      "updated": 1770446295325,
       "link": null,
-      "locked": false
+      "locked": false,
+      "versionNonce": 1135299758,
+      "index": "aO",
+      "frameId": null
     },
     {
       "id": "clinical-results-label",
       "type": "text",
-      "x": 1245,
-      "y": 175,
-      "width": 110,
+      "x": 1232.9140625,
+      "y": 174.578125,
+      "width": 136.31991577148438,
       "height": 50,
       "angle": 0,
       "strokeColor": "#b91c1c",
@@ -791,10 +1060,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 20,
-      "version": 1,
+      "version": 28,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446335454,
       "link": null,
       "locked": false,
       "text": "Clinical Results\nSnowflake Tables",
@@ -802,7 +1071,14 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "middle",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 795924978,
+      "index": "aP",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Clinical Results\nSnowflake Tables",
+      "autoResize": true,
+      "lineHeight": 1.5625
     },
     {
       "id": "results-icon",
@@ -822,10 +1098,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 106,
-      "version": 1,
+      "version": 2,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446271603,
       "link": null,
       "locked": false,
       "text": "📊",
@@ -833,14 +1109,21 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 14
+      "baseline": 14,
+      "versionNonce": 2078677042,
+      "index": "aQ",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "📊",
+      "autoResize": true,
+      "lineHeight": 1.1111111111111112
     },
     {
       "id": "title",
       "type": "text",
-      "x": 500,
+      "x": 416.9453125,
       "y": 50,
-      "width": 400,
+      "width": 483.0546875,
       "height": 40,
       "angle": 0,
       "strokeColor": "#1f2937",
@@ -853,10 +1136,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 21,
-      "version": 1,
+      "version": 43,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446343246,
       "link": null,
       "locked": false,
       "text": "Medical Image Processing Pipeline",
@@ -864,13 +1147,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 24
+      "baseline": 24,
+      "versionNonce": 1359705842,
+      "index": "aR",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "Medical Image Processing Pipeline",
+      "autoResize": false,
+      "lineHeight": 1.4285714285714286
     },
     {
       "id": "phase1-label",
       "type": "text",
-      "x": 145,
-      "y": 270,
+      "x": 72.49238315872867,
+      "y": 267.5162879321082,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -884,10 +1174,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 22,
-      "version": 1,
+      "version": 113,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "INPUT",
@@ -895,13 +1185,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 809177070,
+      "index": "aS",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "INPUT",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase2-label",
       "type": "text",
-      "x": 335,
-      "y": 270,
+      "x": 262.49238315872867,
+      "y": 267.5162879321082,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -915,10 +1212,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 23,
-      "version": 1,
+      "version": 113,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "STORAGE",
@@ -926,13 +1223,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 1382998574,
+      "index": "aT",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "STORAGE",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase3-label",
       "type": "text",
-      "x": 535,
-      "y": 270,
+      "x": 462.49238315872867,
+      "y": 267.5162879321082,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -946,10 +1250,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 24,
-      "version": 1,
+      "version": 113,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "TRAINING",
@@ -957,13 +1261,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 451832942,
+      "index": "aU",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "TRAINING",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase4-label",
       "type": "text",
-      "x": 745,
-      "y": 270,
+      "x": 672.3525869822995,
+      "y": 267.5162879321082,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -977,10 +1288,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 25,
-      "version": 1,
+      "version": 112,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "MODEL",
@@ -988,13 +1299,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 931311278,
+      "index": "aV",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "MODEL",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase5-label",
       "type": "text",
-      "x": 945,
-      "y": 270,
+      "x": 872.3525869822995,
+      "y": 267.5162879321082,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -1008,10 +1326,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 26,
-      "version": 1,
+      "version": 112,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "REGISTRY",
@@ -1019,13 +1337,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 886352110,
+      "index": "aW",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "REGISTRY",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase6-label",
       "type": "text",
-      "x": 1135,
-      "y": 270,
+      "x": 1062.3525869822995,
+      "y": 267.6654038536326,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -1039,10 +1364,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 27,
-      "version": 1,
+      "version": 111,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "INFERENCE",
@@ -1050,13 +1375,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 577592110,
+      "index": "aX",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "INFERENCE",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     },
     {
       "id": "phase7-label",
       "type": "text",
-      "x": 1325,
-      "y": 270,
+      "x": 1252.3525869822995,
+      "y": 267.6654038536326,
       "width": 100,
       "height": 20,
       "angle": 0,
@@ -1070,10 +1402,10 @@
       "groupIds": [],
       "roundness": null,
       "seed": 28,
-      "version": 1,
+      "version": 111,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1770446356360,
       "link": null,
       "locked": false,
       "text": "OUTPUT",
@@ -1081,11 +1413,20 @@
       "fontFamily": 1,
       "textAlign": "center",
       "verticalAlign": "top",
-      "baseline": 10
+      "baseline": 10,
+      "versionNonce": 917882222,
+      "index": "aY",
+      "frameId": null,
+      "containerId": null,
+      "originalText": "OUTPUT",
+      "autoResize": true,
+      "lineHeight": 1.6666666666666667
     }
   ],
   "appState": {
-    "gridSize": null,
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
     "viewBackgroundColor": "#ffffff"
   },
   "files": {}

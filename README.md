@@ -5,7 +5,7 @@
 [![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white)](https://www.snowflake.com)
 [![MONAI](https://img.shields.io/badge/MONAI-Medical_AI-blue)](https://monai.io/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org)
-[![Ray](https://img.shields.io/badge/Ray-Distributed-purple)](https://www.ray.io/)
+[![Snowflake ML](https://img.shields.io/badge/Snowflake_ML-Jobs-purple)](https://docs.snowflake.com/en/developer-guide/snowflake-ml/jobs)
 
 ---
 
@@ -56,7 +56,7 @@
 **New to this demo?** Follow these 3 simple steps:
 
 1. **Run SQL Setup** → Execute `setup/1-setup.sql` to create infrastructure (1 minute)
-2. **Import Notebooks with Container Runtime** → Use screenshots in [Quick Start](#initial-setup) for guidance
+2. **Create Notebooks with Container Runtime** → Configure compute pool + external access (see [Quick Start](#initial-setup))
 3. **Run Notebooks 2 → 3 → 4** → Follow the sequential workflow
 
 **Total Time**: ~30-45 minutes for complete end-to-end execution
@@ -86,10 +86,10 @@ In medical imaging, **deformable image registration** aligns CT scans taken at d
 
 **Solution**: This reference architecture demonstrates enterprise-grade medical image processing entirely within Snowflake, leveraging:
 - **Native GPU compute** (Snowpark Container Services)
-- **Distributed processing** (Ray integration)
+- **Distributed processing** (Snowflake ML Jobs)
 - **Medical AI frameworks** (MONAI)
 - **Secure data management** (Snowflake stages)
-- **Model governance** (Snowflake Model Registry)
+- **Model governance** (Snowflake Model Registry with `run_batch()`)
 
 ---
 
@@ -100,21 +100,21 @@ This implementation showcases **end-to-end medical image AI** on Snowflake:
 ```mermaid
 graph LR
     A[Medical Images<br/>NIfTI Format] --> B[Snowflake Stages<br/>Secure Storage]
-    B --> C[Distributed Training<br/>Ray + GPU]
+    B --> C[Distributed Training<br/>ML Jobs + GPU]
     C --> D[MONAI Model<br/>Registration Network]
-    D --> E[Model Registry<br/>Versioning]
-    E --> F[Parallel Inference<br/>4 GPUs]
-    F --> G[Clinical Results<br/>Snowflake Tables]
+    D --> E[Model Registry<br/>run_batch Support]
+    E --> F[Parallel Inference<br/>run_batch on GPU]
+    F --> G[Clinical Results<br/>Snowflake Stages]
 ```
 
 ### Key Features
 
 ✅ **Native GPU Processing** - NVIDIA GPUs in Snowpark Container Services  
-✅ **Distributed Training** - Ray-based parallel training across multiple nodes  
+✅ **Distributed Training** - Snowflake ML Jobs with `@remote` decorator  
 ✅ **Medical AI Framework** - MONAI (Medical Open Network for AI) integration  
 ✅ **Enterprise Data Management** - Medical images stored securely in Snowflake stages  
-✅ **Model Governance** - Snowflake Model Registry for versioning and deployment  
-✅ **Scalable Inference** - Parallel processing across multiple GPU workers  
+✅ **Model Governance** - Snowflake Model Registry with `run_batch()` support  
+✅ **Scalable Inference** - `run_batch()` for parallel GPU inference  
 ✅ **HIPAA-Ready Infrastructure** - Built on Snowflake's compliant platform  
 
 ### 🏆 Validated Performance Metrics
@@ -211,16 +211,17 @@ Dice = 2 × |A ∩ B| / (|A| + |B|)
 │  ┌──────────────────────────────────────────────┐   │
 │  │     Snowpark Container Services              │   │
 │  │                                              │   │
-│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐    │   │
-│  │  │  GPU 1   │  │  GPU 2   │  │  GPU 3   │    │   │
-│  │  │  Worker  │  │  Worker  │  │  Worker  │    │   │
-│  │  └────┬─────┘  └────┬─────┘  └────┬─────┘    │   │
-│  │       │             │             │          │   │
-│  │       └─────────────┴─────────────┘          │   │
+│  │  ┌──────────────────────────────────────┐    │   │
+│  │  │     Snowflake ML Jobs                │    │   │
+│  │  │  ┌────────┐  ┌────────┐  ┌────────┐  │    │   │
+│  │  │  │ GPU 1  │  │ GPU 2  │  │ GPU N  │  │    │   │
+│  │  │  │ Worker │  │ Worker │  │ Worker │  │    │   │
+│  │  │  └────────┘  └────────┘  └────────┘  │    │   │
+│  │  └──────────────────────────────────────┘    │   │
 │  │                     │                        │   │
 │  │              ┌──────▼──────┐                 │   │
-│  │              │  Ray Cluster│                 │   │
-│  │              │  Head Node  │                 │   │
+│  │              │ run_batch() │                 │   │
+│  │              │  Inference  │                 │   │
 │  │              └──────┬──────┘                 │   │
 │  │                     │                        │   │
 │  └─────────────────────┼────────────────────────┘   │
@@ -229,24 +230,35 @@ Dice = 2 × |A ∩ B| / (|A| + |B|)
 │  │          Snowflake Stages                    │   │
 │  │  • Medical Images (NIfTI)                    │   │
 │  │  • Model Checkpoints                         │   │
-│  │  • Registered Results                        │   │
+│  │  • Inference Results                         │   │
 │  └──────────────────────────────────────────────┘   │
-│                                                     │
-│  ┌───────────────────────────────────────────────┐  │
-│  │          Snowflake Tables                     │  │
-│  │  • Training Metrics                           │  │
-│  │  • Inference Results                          │  │
-│  │  • Quality Metrics (Dice Scores)              │  │
-│  └───────────────────────────────────────────────┘  │
 │                                                     │
 │  ┌───────────────────────────────────────────────┐  │
 │  │          Model Registry                       │  │
 │  │  • Version Control                            │  │
-│  │  • Model Lineage                              │  │
+│  │  • CustomModel with run_batch()               │  │
 │  │  • Deployment Management                      │  │
 │  └───────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────┘
 ```
+
+### Monitoring ML Jobs in Snowsight
+
+Snowflake provides a built-in UI for monitoring ML Jobs, allowing you to track job execution, view logs, and analyze metrics in real-time.
+
+**Accessing the Jobs UI**:
+1. Navigate to **Snowsight** → **Monitoring** → **Services & Jobs**
+2. Filter by job type or status to find your ML Jobs
+3. Click on a job to view detailed execution information
+
+![ML Jobs Dashboard](assets/jobs_ui.png)
+
+**Job Details View**:
+- **Status**: Track job progress (Pending → Running → Completed/Failed)
+- **Logs**: Real-time streaming logs from GPU workers
+- **Metrics**: Resource utilization, execution time, and performance stats
+
+![ML Job Logs](assets/jobs_running.png)
 
 ---
 
@@ -311,9 +323,9 @@ CREATE COMPUTE POOL GPU_ML_M_POOL
 #### Training Pipeline
 
 **1. Distributed Environment Setup**
-- Initializes Ray cluster on Snowpark Container Services
-- Scales to 4 GPU worker nodes
-- Installs medical imaging libraries (MONAI, nibabel, ITK)
+- Uses Snowflake ML Jobs with `@remote` decorator
+- Automatically provisions GPU compute pool
+- Installs medical imaging libraries (MONAI, nibabel)
 
 **2. Data Loading Strategy**
 - **Just-in-time loading**: Only file paths loaded initially (metadata)
@@ -393,30 +405,36 @@ Total Loss = Similarity Loss + λ × Regularization Loss
 - Stage: `@SF_CLINICAL_DB.UTILS.RESULTS_STG/best_model.pth`
 - Registry: `SF_CLINICAL_DB.UTILS.LUNG_CT_REGISTRATION` (version v1)
 
+**Monitoring Training Jobs**:
+
+View training progress in Snowsight under **Monitoring** → **Jobs**:
+
+![Training Job Progress](assets/jobs_log.png)
+
 ---
 
 ### 4️⃣ **Distributed Inference** (`4-model-inference-sf-notebook-containers.ipynb`)
 
-**Purpose**: Deploy trained model for parallel inference across multiple GPU workers
+**Purpose**: Deploy trained model for parallel inference using `run_batch()`
 
-> ⏱️ **Expected Duration**: ~46 seconds for 20 cases with 4 GPUs (validated performance)  
+> ⏱️ **Expected Duration**: ~46 seconds for 20 cases with GPU compute pool (validated performance)  
 > 📊 **Measured Performance**: 0.853 average Dice score, 100% success rate
 
 #### Inference Pipeline
 
 **1. Model Loading**
-- Retrieves model from Snowflake Model Registry
-- Loads trained weights onto each GPU worker
-- Initializes preprocessing pipeline (must match training)
+- Retrieves `CustomModel` from Snowflake Model Registry
+- Model registered with `run_batch()` support
+- Preprocessing pipeline defined in CustomModel class
 
-**2. Distributed Processing**
+**2. Distributed Processing with run_batch()**
 
 ```python
-Parallel Execution:
-├── Dataset partitioned into 20 blocks
-├── Distributed across 4 GPU workers
-├── Each worker processes batches independently
-└── Results aggregated by Ray
+run_batch() Execution:
+├── Input DataFrame with stage paths
+├── InputSpec converts paths to RAW_BYTES automatically
+├── Each case processed independently on GPU
+└── Results saved to output stage
 ```
 
 **3. Inference Steps (per case)**
@@ -440,24 +458,20 @@ graph TD
 
 **Snowflake Stages**:
 ```
-@SF_CLINICAL_DB.UTILS.RESULTS_STG/
-├── registered_case_001_img.nii.gz
-├── registered_case_001_label.nii.gz
-├── registered_case_002_img.nii.gz
+@SF_CLINICAL_DB.UTILS.RESULTS_STG/inference_out/
+├── <job_id>_000000_000000-0.parquet
 └── ...
 ```
 
-**Snowflake Table**: `SF_CLINICAL_DB.RESULTS.MONAI_PAIRED_LUNG_RESULTS`
+**Output Format**: Parquet files containing:
 
 | Column | Type | Description |
 |--------|------|-------------|
-| case_id | VARCHAR | Unique case identifier |
-| status | VARCHAR | "success" or "failed" |
-| dice_score | FLOAT | Registration quality [0-1] |
-| output_image | VARCHAR | Path to registered CT scan |
-| output_label | VARCHAR | Path to registered mask |
-| model_name | VARCHAR | Model identifier |
-| model_version | VARCHAR | Model version used |
+| CASE_ID | VARCHAR | Unique case identifier |
+| STATUS | VARCHAR | "success" or "failed" |
+| DICE_SCORE | FLOAT | Registration quality [0-1] |
+| OUTPUT_IMAGE | VARCHAR | Path to registered CT scan |
+| OUTPUT_LABEL | VARCHAR | Path to registered mask |
 
 #### Expected Performance
 
@@ -466,10 +480,17 @@ graph TD
 - **Parallel efficiency**: ~4× speedup vs. sequential processing
 - **Scalability**: Linear scaling with additional GPUs
 
-**Sequential Comparison**:
-- 1 GPU (sequential): ~8-10 minutes for 20 cases
-- 4 GPUs (parallel): **46 seconds** for 20 cases
-- **Speedup**: ~10-13× faster with distributed inference
+**run_batch() Benefits**:
+- No manual cluster management required
+- Automatic container image building with dependencies
+- Simple API: just call `model_version.run_batch()`
+- Results automatically saved to output stage
+
+**Monitoring Inference Jobs**:
+
+Track `run_batch()` job progress in Snowsight under **Monitoring** → **Jobs**:
+
+![Inference Job Progress](assets/jobs_inference.png)
 
 **Quality Metrics** (Real-world Results):
 - **Average Dice score**: 0.853 (excellent registration quality)
@@ -493,32 +514,19 @@ graph TD
 
 > **⚠️ CRITICAL: These steps are required BEFORE running any notebooks!**
 
-#### Step 1: Import Notebooks as Container Runtime
+#### Configure Notebooks with Container Runtime
 
-When creating or importing the notebooks (files 2, 3, and 4), ensure you select **Container Runtime** to enable GPU compute and external library access:
+When creating notebooks in Snowflake Workspaces (files 2, 3, and 4), configure all settings in a single step:
 
-![Import Notebook as Container](assets/import_notebook_as_container.png)
+![Notebook Container Settings](assets/notebook_container_settings.png)
 
-**Key Settings**:
+**Required Settings**:
 - **Runtime**: Container Runtime (required for GPU and custom packages)
 - **Compute Pool**: Select `GPU_ML_M_POOL` (created in step 1-setup.sql)
 - **External Access Integration**: `ALLOW_ALL_EAI` (created in step 1-setup.sql)
 
-#### Step 2: Enable External Access Integration in Notebook Settings
-
-After importing, configure each notebook to use the External Access Integration. This allows the notebooks to download MONAI and other medical imaging libraries from PyPI:
-
-![Enable External Access Integration](assets/enable_external_access_integration.png)
-
-**Configuration Steps**:
-1. Open notebook settings (⚙️ icon)
-2. Navigate to "External Access Integrations"
-3. Select `ALLOW_ALL_EAI`
-4. Save settings
-
-**Why is this needed?** 
+**Why External Access?** 
 - Notebooks need internet access to `pip install` MONAI, PyTorch, nibabel, and other medical imaging libraries
-- External Access Integration provides secure, governed internet connectivity
 - Without this, dependency installation will fail
 
 ### Step-by-Step Execution
@@ -526,9 +534,8 @@ After importing, configure each notebook to use the External Access Integration.
 ```bash
 # 0. Notebook Setup (One-time configuration)
 Before starting:
-├── Import notebooks with Container Runtime (see screenshot above)
-├── Configure External Access Integration: ALLOW_ALL_EAI
-└── Select Compute Pool: GPU_ML_M_POOL
+├── Create notebooks with Container Runtime (see screenshot above)
+└── Configure Compute Pool + External Access in one step
 
 # 1. Environment Setup (SQL)
 Execute: setup/1-setup.sql
@@ -556,17 +563,16 @@ Run: setup/4-model-inference-sf-notebook-containers.ipynb
 After execution, verify results:
 
 ```sql
--- Check inference results
-SELECT 
-    case_id,
-    dice_score,
-    status,
-    model_version
-FROM SF_CLINICAL_DB.RESULTS.MONAI_PAIRED_LUNG_RESULTS
-ORDER BY dice_score DESC;
+-- Check inference results (Parquet files in output stage)
+LIST @SF_CLINICAL_DB.UTILS.RESULTS_STG/inference_out/;
 
--- Verify registered images in stage
-LIST @SF_CLINICAL_DB.UTILS.RESULTS_STG;
+-- Query inference results directly from Parquet
+SELECT $1:CASE_ID::VARCHAR AS case_id,
+       $1:STATUS::VARCHAR AS status,
+       $1:DICE_SCORE::FLOAT AS dice_score
+FROM @SF_CLINICAL_DB.UTILS.RESULTS_STG/inference_out/
+(FILE_FORMAT => 'SF_CLINICAL_DB.UTILS.PARQUET_FF')
+ORDER BY dice_score DESC;
 
 -- Check model registry
 SHOW MODELS IN SF_CLINICAL_DB.UTILS;
@@ -609,10 +615,10 @@ SHOW MODELS IN SF_CLINICAL_DB.UTILS;
 - ✅ Ensure notebook is assigned to `GPU_ML_M_POOL`
 - ✅ Check GPU quota with your Snowflake account team
 
-**Issue: Ray cluster fails to initialize**
+**Issue: ML Job fails to start**
 - ✅ Ensure compute pool has at least 1 active node
-- ✅ Check network rules allow inter-node communication
-- ✅ Restart notebook kernel and re-run setup cell
+- ✅ Verify External Access Integration is enabled for pip installs
+- ✅ Check job logs in Snowsight for detailed errors
 
 **Issue: Model Registry errors**
 - ✅ Verify `SF_CLINICAL_DB.UTILS` schema exists
@@ -750,7 +756,7 @@ Snowflake SPCS:
 | **Platform** | Snowflake | Latest | Consumption-based |
 | **Compute** | Snowpark Container Services | GPU-enabled | Per-second billing |
 | **GPU Type** | NVIDIA GPU_NV_M (A10G) | 24GB VRAM | **2.68 credits/hour/GPU** |
-| **Distributed Framework** | Ray | 2.x | Included (no extra cost) |
+| **Distributed Framework** | Snowflake ML Jobs | Native | Included (no extra cost) |
 | **Deep Learning** | PyTorch | 2.x | Included |
 | **Medical AI** | MONAI | 1.3+ | Open source |
 | **Image Format** | NIfTI / nibabel | - | Open standard |
@@ -900,7 +906,7 @@ Same inference workload (46 seconds):
 ### Snowflake Resources
 
 - **Snowpark Container Services**: [Documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview)
-- **Snowflake Ray Distributed Processing**: [Scaling with Ray](https://docs.snowflake.com/en/developer-guide/snowflake-ml/scale-application-ray)
+- **Snowflake ML Jobs**: [Remote Functions & Batch Inference](https://docs.snowflake.com/en/developer-guide/snowflake-ml/jobs)
 - **Snowflake ML**: [Model Registry Guide](https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview)
 - **GPU Compute**: [GPU Instances Guide](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference)
 
@@ -920,9 +926,9 @@ Same inference workload (46 seconds):
 After completing this tutorial, you will understand:
 
 ✅ How to process medical images natively in Snowflake  
-✅ Distributed GPU training with Ray on Snowpark Container Services  
+✅ Distributed GPU training with Snowflake ML Jobs (`@remote` decorator)  
 ✅ Medical AI framework integration (MONAI)  
 ✅ Model governance with Snowflake Model Registry  
-✅ Scalable inference pipelines for production workloads  
+✅ Scalable inference with `run_batch()` for production workloads  
 ✅ End-to-end MLOps for healthcare applications  
 ✅ **SPCS cost optimization** with per-second billing and auto-shutdown  
