@@ -26,8 +26,8 @@
 <p>Success Rate<br/>(1,000/1,000 cases)</p>
 </td>
 <td width="25%" align="center">
-<h3>💰 0.006 credits</h3>
-<p>Per Case Cost<br/>(~$0.02 @ $3/credit)</p>
+<h3>💰 0.0009 credits</h3>
+<p>Per Case Cost<br/>(~$0.003 @ $3/credit)</p>
 </td>
 </tr>
 </table>
@@ -128,7 +128,7 @@ graph LR
 | **Throughput** | **~4.85 cases/sec** | ~206 ms per case with parallelism |
 | **Registration Quality** | **Dice Score: 0.853** | Excellent clinical quality |
 | **Success Rate** | **100%** | 1,000/1,000 cases successfully processed |
-| **Cost per Case** | **0.006 credits** | ~$0.02 per case @ $3/credit |
+| **Cost per Case** | **0.0009 credits** | ~$0.003 per case @ $3/credit |
 | **Scalability** | **Linear** | More GPUs = proportional speedup |
 
 **Key Takeaway**: Process thousands of 3D medical images in minutes, not hours, with clinical-grade quality (Dice > 0.85).
@@ -158,8 +158,8 @@ graph LR
 ```
 1,000-case production job (3 min 26 sec):
 ├─ Billed: Per-second (after 5-min min)
-├─ Cost: 6.15 credits (~$18.45)
-├─ Per-case: $0.02/case
+├─ Cost: 0.89 credits (~$2.68)
+├─ Per-case: $0.003/case
 └─ Auto-shutdown, zero ops
 ```
 </td>
@@ -681,7 +681,7 @@ Snowflake SPCS:
 | Metric | Traditional Approach | With Snowflake | Improvement |
 |--------|---------------------|----------------|-------------|
 | **Time to Production** | 6-12 months | 2-4 weeks | **10× faster** |
-| **Infrastructure Cost** | $200K+ annually<br/>(GPUs, storage, networking) | 0.006 credits/case<br/>(~$0.02 at scale) | **>99% reduction** |
+| **Infrastructure Cost** | $200K+ annually<br/>(GPUs, storage, networking) | 0.0009 credits/case<br/>(~$0.003 at scale) | **>99% reduction** |
 | **Processing Speed** | 2+ hours for 1,000 cases (sequential) | **3 min 26 sec** (parallel) | **35× faster** |
 | **Compute Billing** | Pay for reserved capacity (24/7) | **Per-second billing**<br/>Auto-shutdown | **Massive savings** |
 | **Data Scientist Productivity** | 30% (60% on infra/ETL) | 80% (focus on models) | **2.7× improvement** |
@@ -697,35 +697,35 @@ Snowflake SPCS:
 
 **Important**: SPCS applies a **5-minute minimum billable time per compute pool node**. For small jobs, this minimum dominates the cost. The true value of per-second billing emerges at scale—which is exactly where production workloads operate.
 
-**Break-even point**: With 16 GPUs (4 nodes × 4 GPUs) processing ~290 cases/minute, jobs exceeding **~1,450 cases** surpass the 5-minute minimum and benefit from per-second billing.
+**Break-even point**: With 4 nodes (16 GPUs) processing ~291 cases/minute, jobs exceeding **~1,455 cases** surpass the 5-minute minimum and benefit from per-second billing.
 
-**With 16 GPUs (4 nodes × 4 GPUs)** (GPU_NV_M @ 2.68 credits/hour each = **42.88 credits/hour total**):
-
-| Dataset Size | Processing Time | Credits | Cost @ $3/credit | Per-Case Cost |
-|--------------|----------------|---------|------------------|---------------|
-| **1,000 cases** ✅ | **3 min 26 sec** | **3.57*** | **$10.71*** | $0.01* |
-| 5,000 cases | ~17 minutes | 12.15 | $36.45 | **$0.007** |
-| 10,000 cases | ~34 minutes | 24.30 | $72.90 | **$0.007** |
-| 50,000 cases | ~2.9 hours | 124.35 | $373.05 | **$0.007** |
-| 100,000 cases | ~5.7 hours | 244.40 | $733.20 | **$0.007** |
-
-*\*Minimum charge applies (5 min × 4 nodes = 3.57 credits)*
-
-**With 32 GPUs (8 nodes × 4 GPUs)** (scale up compute pool = **85.76 credits/hour total**):
+**With 4 nodes (16 GPUs)** (GPU_NV_M @ 2.68 credits/hour per node = **10.72 credits/hour total**):
 
 | Dataset Size | Processing Time | Credits | Cost @ $3/credit | Per-Case Cost |
 |--------------|----------------|---------|------------------|---------------|
-| 1,000 cases | ~1 min 43 sec | 7.15* | $21.45* | $0.02* |
-| 5,000 cases | ~8.5 minutes | 12.15 | $36.45 | **$0.007** |
-| 10,000 cases | ~17 minutes | 24.30 | $72.90 | **$0.007** |
-| 50,000 cases | ~1.4 hours | 120.07 | $360.21 | **$0.007** |
-| 100,000 cases | ~2.9 hours | 248.70 | $746.10 | **$0.007** |
+| **1,000 cases** ✅ | **3 min 26 sec** | **0.89*** | **$2.68*** | $0.003* |
+| 2,000 cases | ~7 min | 1.25 | $3.75 | **$0.002** |
+| 5,000 cases | ~17 minutes | 3.04 | $9.12 | **$0.002** |
+| 10,000 cases | ~34 minutes | 6.07 | $18.21 | **$0.002** |
+| 100,000 cases | ~5.7 hours | 60.74 | $182.22 | **$0.002** |
+
+*\*Minimum charge applies (5 min × 4 nodes = 0.89 credits)*
+
+**With 8 nodes (32 GPUs)** (scale up compute pool = **21.44 credits/hour total**):
+
+| Dataset Size | Processing Time | Credits | Cost @ $3/credit | Per-Case Cost |
+|--------------|----------------|---------|------------------|---------------|
+| 1,000 cases | ~1 min 43 sec | 1.79* | $5.37* | $0.005* |
+| 2,000 cases | ~3.5 min | 1.79* | $5.37* | $0.003* |
+| 5,000 cases | ~8.5 minutes | 3.04 | $9.12 | **$0.002** |
+| 10,000 cases | ~17 minutes | 6.07 | $18.21 | **$0.002** |
+| 100,000 cases | ~2.9 hours | 62.18 | $186.54 | **$0.002** |
 
 *\*Minimum charge applies*
 
 **Cost Optimization Insights**: 
 
-> 💡 **Key insight**: The 5-minute minimum is a fixed cost that amortizes away at scale. For production workloads processing thousands of scans, you achieve true **$0.007 credits per case** (~$0.02) economics.
+> 💡 **Key insight**: The 5-minute minimum is a fixed cost that amortizes away at scale. For production workloads processing thousands of scans, you achieve true **~0.0006 credits per case** (~$0.002) economics.
 
 - ✅ **Per-second billing**: Kicks in after the 5-minute minimum threshold
 - ✅ **Linear scaling**: 2× GPUs = 0.5× time, **same total cost** (but faster results)
@@ -738,9 +738,9 @@ Snowflake SPCS:
 | Metric | Value |
 |--------|-------|
 | **Scenario** | Phase III clinical trial with 10,000 lung CT pairs |
-| **Processing Time** | 34 min (16 GPUs) or 17 min (32 GPUs) |
-| **Total Cost** | ~24 credits (~$73 at $3/credit) |
-| **Per-Patient Cost** | **$0.007** |
+| **Processing Time** | 34 min (4 nodes) or 17 min (8 nodes) |
+| **Total Cost** | ~6 credits (~$18 at $3/credit) |
+| **Per-Patient Cost** | **$0.002** |
 | **Traditional Cloud Cost** | ~$2,000-5,000 (reserved GPU instances) |
 | **Savings** | **>97% cost reduction** |
 
@@ -756,7 +756,7 @@ Snowflake SPCS:
 |-----------|-----------|---------|---------|
 | **Platform** | Snowflake | Latest | Consumption-based |
 | **Compute** | Snowpark Container Services | GPU-enabled | Per-second billing |
-| **GPU Type** | NVIDIA GPU_NV_M (A10G) | 24GB VRAM | **2.68 credits/hour/GPU** |
+| **GPU Type** | NVIDIA GPU_NV_M (A10G) | 24GB VRAM × 4 GPUs/node | **2.68 credits/hour/node** |
 | **Distributed Framework** | Snowflake ML Jobs | Native | Included (no extra cost) |
 | **Deep Learning** | PyTorch | 2.x | Included |
 | **Medical AI** | MONAI | 1.3+ | Open source |
@@ -770,7 +770,7 @@ Snowflake SPCS:
 CREATE COMPUTE POOL GPU_ML_M_POOL 
   min_nodes = 1
   max_nodes = 8 
-  instance_family = 'GPU_NV_M';  -- 2.68 credits/hour per GPU
+  instance_family = 'GPU_NV_M';  -- 2.68 credits/hour per node (4 GPUs/node)
 ```
 
 **Training**:
@@ -780,10 +780,10 @@ CREATE COMPUTE POOL GPU_ML_M_POOL
 - **Credits**: **~4.5-5.4 credits** (auto-shutdown after completion)
 
 **Inference**:
-- **Compute**: 4 nodes × 4 GPUs = 16× GPU_NV_M (42.88 credits/hour total)
+- **Compute**: 4 nodes × 4 GPUs/node = 16 GPUs (10.72 credits/hour total)
 - **Storage**: ~200 MB - 1 GB (results)
 - **Duration**: **3 min 26 sec for 1,000 cases** (measured)
-- **Credits**: **~3.57 credits** (5-min minimum × 4 nodes; at scale: 0.006 credits/case)
+- **Credits**: **~0.89 credits** (5-min minimum × 4 nodes; at scale: ~0.0006 credits/case)
 
 **Snowpark Container Services Auto-Shutdown**:
 > ⚡ **Critical Cost Optimization**: SPCS automatically suspends compute pools when idle, ensuring you only pay for active processing time. For inference, this means GPUs shut down within seconds after the last case completes - no manual intervention required!
@@ -797,16 +797,16 @@ Traditional cloud GPU instances charge for reserved capacity (minimum 1 hour), l
 **Cost Breakdown for This Demo**:
 
 ```
-GPU_NV_M Pricing: 2.68 credits/hour per GPU
-16 GPUs in parallel (4 nodes × 4 GPUs): 42.88 credits/hour total
+GPU_NV_M Pricing: 2.68 credits/hour per node (each node has 4 GPUs)
+4 nodes in parallel: 10.72 credits/hour total
 
 Inference (1,000 cases in 3 min 26 sec):
 ├── Runtime: 206 seconds actual
 ├── Billed: 5-min minimum × 4 nodes
-├── Credits: 4 × (5/60) × 2.68 × 4 GPUs/node = 3.57 credits
+├── Credits: 4 nodes × (5/60) × 2.68 = 0.89 credits
 ├── Auto-shutdown: Immediate (within ~10 seconds)
-└── Total billed: 3.57 credits (~$10.71 @ $3/credit)
-    (At scale 5000+ cases: ~0.006 credits/case = $0.02/case)
+└── Total billed: 0.89 credits (~$2.68 @ $3/credit)
+    (At scale 2000+ cases: ~0.0006 credits/case = $0.002/case)
 
 Training (25 minutes):
 ├── Runtime: 25 minutes = 0.417 hours
@@ -823,8 +823,8 @@ AWS EC2 g4dn.xlarge (T4 GPU): $0.526/hour (minimum 1 hour)
 
 Same inference workload (1,000 cases in 3 min 26 sec):
 ├── AWS charges: $8.42 (full hour, even for 3.5 minutes)
-├── Snowflake charges: ~$10.71 (3.57 credits, 5-min minimum)
-└── At scale (5000+ cases): $0.02/case vs AWS ~$0.42/case
+├── Snowflake charges: ~$2.68 (0.89 credits, 5-min minimum)
+└── At scale (2000+ cases): $0.002/case vs AWS ~$0.42/case
 ```
 
 **Key SPCS Advantages**:
@@ -832,7 +832,7 @@ Same inference workload (1,000 cases in 3 min 26 sec):
 - ✅ **Per-second after minimum**: Beyond 5 min, billing is per-second granularity
 - ✅ **Automatic termination**: No manual shutdown required
 - ✅ **Zero idle cost**: GPUs terminate immediately after job completion
-- ✅ **Scale economics**: At production volumes (5000+ cases), achieve $0.006 credits/case (~$0.02)
+- ✅ **Scale economics**: At production volumes (2000+ cases), achieve ~0.0006 credits/case (~$0.002)
 
 ### Cost Estimation
 
@@ -845,10 +845,10 @@ Same inference workload (1,000 cases in 3 min 26 sec):
 | **Setup** | N/A | 1 min | 0 | One-time SQL execution |
 | **Data Ingestion** | CPU warehouse | 5-10 min | ~0.1-0.2 | Warehouse credits |
 | **Training** | 4× GPU_NV_M | 25-30 min | **~4.5-5.4** | Auto-shutdown after completion |
-| **Inference (1,000 cases)** | 16× GPU_NV_M | **3 min 26 sec** | **~3.57** | Auto-shutdown after completion |
+| **Inference (1,000 cases)** | 4 nodes (16 GPUs) | **3 min 26 sec** | **~0.89** | Auto-shutdown after completion |
 | **Storage** | Stages | Ongoing | <0.01/month | Medical images + models |
 
-**Total POC Cost**: **~8-9 credits** (~$24-27 @ $3/credit) for complete end-to-end workflow
+**Total POC Cost**: **~5-6 credits** (~$15-18 @ $3/credit) for complete end-to-end workflow
 
 **Detailed POC Cost Breakdown**:
 
@@ -856,17 +856,17 @@ Same inference workload (1,000 cases in 3 min 26 sec):
 |----------|---------|-----------------|----------|
 | Setup + Data Ingestion | ~0.1-0.2 | ~$0.30-0.60 | 5-10 min |
 | Model Training (4 GPUs) | **4.5-5.4** | ~$13.50-16.20 | 25-30 min |
-| Inference (1,000 cases, 16 GPUs) | **3.57** | ~$10.71 | **3 min 26 sec** |
-| **Total** | **~8.2-9.2** | **~$24-27** | ~35-45 min |
+| Inference (1,000 cases, 4 nodes) | **0.89** | ~$2.68 | **3 min 26 sec** |
+| **Total** | **~5.5-6.5** | **~$16-20** | ~35-45 min |
 
 **Per-Case Costs** (based on validated performance):
 
 | Metric | Credits/Case | USD/Case @ $3/credit | Notes |
 |--------|--------------|----------------------|-------|
-| **Inference only** | **0.006** | **~$0.02** | 3m26s ÷ 1,000 cases |
+| **Inference only** | **0.0009** | **~$0.003** | 0.89 credits ÷ 1,000 cases |
 | **Training (amortized over 1,000)** | 0.0045-0.0054 | ~$0.01-0.02 | One-time training cost |
-| **Total (training + inference)** | **~0.01** | **~$0.03** | Full pipeline per case |
-| **Inference at 5,000+ cases** | **0.006** | **~$0.02** | Training cost amortized |
+| **Total (training + inference)** | **~0.006** | **~$0.02** | Full pipeline per case |
+| **Inference at 2,000+ cases** | **~0.0006** | **~$0.002** | Beyond 5-min minimum |
 
 **Snowflake Cost Advantages**:
 - ✅ **Immediate shutdown**: SPCS auto-terminates compute when idle (no wasted GPU hours)
@@ -880,8 +880,8 @@ Same inference workload (1,000 cases in 3 min 26 sec):
 | Approach | Monthly Cost | Calculation |
 |----------|--------------|-------------|
 | **On-Premises GPU** | ~$64,000 | 16× GPUs × $4K/month (CapEx amortized) |
-| **AWS/GCP GPU Instances** | ~$32,000 | 16× T4 GPUs × 730 hours × $0.35/hour |
-| **Snowflake SPCS** | **~$73** | 10,000 cases × 0.006 credits × $3/credit |
+| **AWS/GCP GPU Instances** | ~$4,000+ | 16× T4 GPUs × 730 hours × $0.35/hour |
+| **Snowflake SPCS** | **~$18** | 10,000 cases × 0.0006 credits × $3/credit |
 
 **Savings**: **>99% cost reduction** vs. traditional infrastructure
 
